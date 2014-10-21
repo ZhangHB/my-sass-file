@@ -1,0 +1,22 @@
+@charset "utf-8";
+/*!
+TABS.scss 2014-09-25 */
+.native-tabs {
+    .tab-hds {
+        width: 100%;
+        @extend .row;
+        li {
+            @extend .dib;
+            text-align: center;
+            cursor: pointer;
+            a {
+                display: block;
+                height: 34px;
+                line-height: 34px;
+            }
+        }
+    }
+    .tab-bd {
+        display: none;
+    }
+}

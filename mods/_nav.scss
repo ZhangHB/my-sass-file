@@ -1,0 +1,171 @@
+@charset "utf-8";
+/*!
+NAV.scss 2014-09-25 */
+//------------------------------------------------------------------------------
+// 各种菜单
+// 1. 全局导航        (.global-nav)
+// 2. 页面浮动菜单    (#page-nav)
+// 3. 顶部导航        (.top-bar)
+//------------------------------------------------------------------------------
+
+// 全局导航
+//------------------------------------------------------------------------------
+
+@mixin global-nav($single:true, $height:50px, $fs:16px){
+    @if $show-global-nav {
+        @if $single {
+            height: $height;
+        }
+
+        .menu {
+            @extend .layout;
+            text-align:center;
+            list-style:none;
+
+            @if $single {
+                display:table;
+                *display:block;
+            }@elseif($single == false){
+                @extend .row;
+            }
+
+            @if $single {
+                height: $height;
+            }
+            line-height: $height;
+
+        }
+        .item {
+            @if $single {
+                display:table-cell;
+                *display:inline;
+            }@elseif($single == false){
+                @extend .dib;
+            }
+
+            a {
+                @if $single {
+                    padding: 0 0.5em;
+                }@elseif($single == false){
+                    padding:0;
+                }
+                letter-spacing: 0.1em;
+                font-size:$fs;
+                display:block;
+                *display:inline-block;
+                font-weight: 400;
+                // font-family: $msyh, sans-serif;
+            }
+        }
+    }@else{
+        display:none;
+    }
+}
+
+
+%global-nav {
+    @include global-nav;
+}
+
+
+
+
+//    页面浮动菜单
+//------------------------------------------------------------------------------
+@if($show-page-fixed-nav) {
+    #page-nav {
+        position:relative;
+        @extend .layout;
+
+        .page-nav {
+            position:absolute;
+            top:10px;
+            right:-130px;
+            width:113px;
+            padding:1px;
+
+            .gohome a {
+                display:block;
+                height:40px;
+                font:14px/40px '\5FAE\8F6F\96C5\9ED1';
+                letter-spacing:0.1em;
+                text-align:center;
+            }
+            .item a {
+                display:block;
+                height:40px;
+                margin-top:1px;
+                text-align:center;
+                font:18px/40px '\5FAE\8F6F\96C5\9ED1';
+                &:hover {
+                    font-weight:700;
+                }
+            }
+        }
+    }
+    #section-0 {
+        @extend .layout;
+        .fixed-fix {
+            position:fixed;
+            top:5px;
+            z-index:99;
+        }
+    }
+} @else {
+    #section-0 {
+        display:none;
+    }
+}
+
+
+
+// 顶部全局导航
+//------------------------------------------------------------------------------
+// .top-bar {
+//     @if($show-top-bar) {
+//         height: $top-bar-height - $top-bar-underline-height;
+//         text-align:center;
+//         border-bottom-width: $top-bar-underline-height;
+//         border-bottom-style: solid;
+//         .home-site-link {
+//             font-style:normal;
+//             font-weight:700;
+//         }
+//         .item {
+//             line-height: $top-bar-height;
+//             a {
+//                 padding-left: 5px;
+//                 padding-right: 5px;
+//             }
+//         }
+//     }@else{
+//         display:none;
+//         visibility: hidden;
+//     }
+// }
+
+
+@mixin top-bar($height:32px, $underline:1px) {
+    @if($show-top-bar) {
+        height: $height - $underline;
+        text-align:center;
+        // border-bottom-width: $underline;
+        // border-bottom-style: solid;
+
+        border-bottom:$underline solid #ccc;
+        .home-site-link {
+            font-style:normal;
+            font-weight:700;
+        }
+        .item {
+            line-height: $height;
+            a {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    }@else{
+        display:none;
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,188 @@
+// 两个 jCarousel 联动
+// 大尺寸焦点图
+//------------------------------------------------------------------------------
+#big-slider {
+    margin: 10px auto;
+
+    .stage {
+        width: 980px;
+        position: relative;
+    }
+
+    .navigation {
+        width: 980px;
+        position: relative;
+    }
+
+    .carousel {
+        position: relative;
+        overflow: hidden;
+        ul {
+            width: 200000px;
+            position: absolute;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .carousel-navigation {
+        height: 64px;
+        width: 932px;
+        margin: 0 23px;
+        li {
+            cursor: pointer;
+            padding: 0 2px;
+            img {
+                display: block;
+                width: 115px;
+                height: 60px;
+                opacity: 0.5;
+                filter: alpha(opacity=50);
+            }
+            &.active img {
+                opacity: 1;
+                filter: alpha(opacity=100);
+                border-color: #ccc;
+                transition: opacity 0.5s ease 0s;
+            }
+        }
+    }
+
+    .caption {
+        position: absolute;
+        bottom: 4px;
+        width: 950px;
+        padding: 15px;
+        background: #000;
+        color: #fff;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+
+        h2 {
+            line-height: 32px;
+            font-size: 14px
+        }
+
+        a {
+            color: #fff
+        }
+    }
+
+
+    .prev-stage,
+    .next-stage {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 520px;
+        color: #fff;
+    }
+
+
+        .prev-stage {
+            left: 0;
+        }
+
+
+        .next-stage {
+            right: 0;
+        }
+
+
+    .prev-stage.inactive,
+    .next-stage.inactive {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        display: none;
+    }
+
+
+        .prev-stage span,
+        .next-stage span {
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+            position: absolute;
+            top: 30%;
+            width: 85px;
+            height: 185px;
+            text-indent: -9999px;
+            background: url(../img/global-1.png) no-repeat 0 0;
+            cursor: pointer;
+            transition: all 0.5s ease 0s;
+        }
+
+
+        .prev-stage span {
+            left: 20px;
+            background-position: -582px -90px;
+        }
+
+
+        .next-stage span {
+            right: 20px;
+            background-position: -667px -90px;
+        }
+
+
+        .prev-stage:hover span,
+        .next-stage:hover span {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            display: block;
+        }
+
+
+        .prev-navigation,
+        .next-navigation {
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            text-indent: -9999px;
+            background: #ff5400 url(../img/global-1.png) no-repeat -732px -154px;
+            transition: all 0.5s ease 0s;
+        }
+
+
+        .prev-navigation {
+            left: 0;
+            background-position: -582px -154px;
+        }
+
+
+        .next-navigation {
+            right: 0;
+        }
+
+
+        .prev-navigation.inactive,
+        .next-navigation.inactive {
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+            cursor: default;
+        }
+
+
+}
+
+
+
+
+#big-slider__bd {
+    height: 525px;
+    img {
+        width: 980px;
+        height: 520px;
+    }
+}
+
+
+
+
+
+
+* html #big-slider .stage {
+    background: #000;
+}

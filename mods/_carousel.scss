@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*!
+CAROUSEL.scss 2014-09-25 */
+
+.native-carousel {
+    position:relative;
+    overflow:hidden;
+    width:100%;
+
+
+
+    // 列表容器，用来水平移动
+    .list {
+        position:absolute;
+        top:0;
+        left:0;
+
+        // 列表单元
+        .item {
+            float:left;
+        }
+    }
+
+
+    // 基础翻页按钮
+    .base-pager {
+        width:100%;
+        position:absolute;
+        z-index:1010;
+        @extend .row;
+        .item {
+            @extend .dib;
+            width:12px;
+            height:12px;
+            margin:0 1px;
+            cursor:pointer;
+            a {
+                display:block;
+                height:12px;
+                text-indent:-9999px;
+                background:url(../img/pager.png) no-repeat 0 -12px;
+            }
+            .current {
+                background-position:0 0;
+            }
+        }
+    }
+
+
+    // 基础左右按钮
+    .button-box {
+        .button {
+            position:absolute;
+            top:0;
+            width:60px;
+            height:100%;
+            @include opacity(10);
+            background:url(../img/nav.png) no-repeat 10px 50%;
+            *background:url(../img/nav.png8.png) no-repeat 10px 50%;
+            transition: 0.5s;
+        }
+        a.button:hover {
+            @include opacity(100);
+        }
+
+        .next {
+            right:0;
+            background-position:-50px 50%;
+        }
+
+        .prev {
+            left:0;
+        }
+    }
+
+}

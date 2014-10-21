@@ -1,0 +1,106 @@
+@charset "utf-8";
+// QQ Scroll
+//------------------------------------------------------------------------------
+.qqscroll {
+    width: 980px;
+    height:320px;
+    position: relative;
+
+    .inner {
+        position: relative;
+        width: 980px;
+        height: 320px;
+        overflow: hidden;
+    }
+    .list {
+        width: 9999em;
+    }
+    .split {
+        float: left;
+        width: 980px;
+        height: 320px;
+        padding-right: 3px;
+    }
+    .btn {
+        display: none;
+        position: absolute;
+        top: 25%;
+        width: 30px;
+        height:160px;
+        cursor: pointer;
+        font: 60px/160px Verdana,sans-serif;
+        background-color: #FFF;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        z-index: 2;
+        &:hover {
+            opacity: 0.9;
+            filter: alpha(opacity=90);
+        }
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+        _right: -1px;
+    }
+
+    .item {
+        width:50%;
+        float:left;
+        padding-bottom: 1px;
+    }
+
+    .item-pic {
+        position:relative;
+        display: block;
+        cursor: pointer;
+        background-color: #FFF;
+        color: #FFF;
+        &:hover {
+            text-decoration: none;
+            color: #FFF;
+            & .i-shadow {
+                display: none;
+            }
+        }
+        & .shadow,
+        & .txt {
+            display: block!important;
+        }
+        .shadow {
+            display: none;
+            position:absolute;
+            left: 0;
+            top: 320px;
+            width: 100%;
+            height: 320px;
+            background-color: #06c;
+            opacity: 0.9;
+            filter: alpha(opacity=90);
+        }
+        .txt {
+            display: none;
+            position:absolute;
+            left: 0;
+            top: 320px;
+            border-top: 2px solid #4B9BC3;
+            padding: 25px 15px 0 23px;
+            h3 {
+                font-weight: bold;
+                font-size:32px;
+            }
+            p {
+                color: #fff;
+                padding-top: 10px;
+                font-size:14px;
+                line-height:24px;
+            }
+        }
+    }
+}
+.qqscroll-1_hover .btn,
+.qqscroll-1:hover .btn {
+    display: block;
+}

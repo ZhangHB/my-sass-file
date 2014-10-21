@@ -1,0 +1,144 @@
+@charset "utf-8";
+/*!
+LAYOUT.scss 2014-09-17 */
+
+// 布局
+//------------------------------------------------------------------------------
+
+
+// 用于让页面居中的元素
+%layout {
+    @include center-block;
+    width: $page-width;
+}
+.layout { @extend %layout;}
+
+
+
+
+
+// 页面各个部分的样式
+.phd {
+    height: $phd-height;
+    transition:0.3s;
+}
+
+.logo {
+    // height: $phd-height;
+    text-indent: -9999px;
+}
+
+
+
+
+// 创建页面 footer
+// 这部分是为了测试用 mixin 按需求 生成固定代码
+@mixin pft($type:1, $height:90px, $main-color:$blue) {
+
+    background-color:$main-color;
+    color:lighten($main-color,50%);
+
+    a {
+        color:lighten($main-color, 30%);
+    }
+
+    @if($type == 1) {
+        height:$height;
+        text-align:center;
+        .copyright {
+            @extend .layout;
+            font-size:12px;
+            line-height:$height;
+        }
+    }
+}
+
+%pft {
+    @include pft;
+}
+
+
+
+
+
+// 创建 section-title,
+// 目前的参数:
+// 高度 : 除了`本身的高度以外, 还用在 行高, 以及 ie6~7 的 -margin-top hack
+// 缩进 :
+// 字号 : 顾名思义
+// 前景色和背景色 : 分别默认是 白色 和 主色
+
+@mixin section-title($height:false, $indent:false, $fs:false, $color:false, $bg:false) {
+
+    @if $height {
+        height:$height;
+        line-height:$height;
+    }
+
+    @if $indent {
+        text-indent:$indent;
+    }
+
+    @if $fs {
+        font-size:$fs;
+    }
+
+    @if $color {
+        color:$color;
+    }
+
+    @if $bg {
+        background-color:$bg;
+    }
+
+    _position:relative;
+
+    em {
+        font-style:normal;
+        font-weight:700;
+    }
+
+    .more {
+        float:right;
+
+        // 之前是用负 margin-top 来修正 ie6 错位的问题，现在改成 absolute 吧
+        _position:absolute;
+        _right:0;
+        _top:0;
+
+        @if $height {
+            height:$height;
+            line-height:$height;
+        }
+
+        @if $indent {
+            padding:0 $indent;
+        }
+
+        @if $color {
+            color:$color;
+        }
+
+        font-size:12px;
+        text-indent:0;
+
+        @if $bg {
+            border-left:1px solid lighten($bg, 5%);
+        }
+
+        &:hover {
+            @if $bg {
+                background-color:darken($bg, 5%);
+            }
+        }
+    }
+
+
+}
+
+%section-title {
+    @include section-title($height:45px, $indent:1em, $fs:16px, $color:#fff, $bg:$primary);
+}
+
+
+

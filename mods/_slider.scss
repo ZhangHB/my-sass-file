@@ -1,0 +1,72 @@
+@charset "utf-8";
+/*!
+SLIDER.scss 2014-09-25 Slidershow.0.2.1 */
+
+// 外层包裹元素
+.native-slide {
+
+    // 需要单独设置宽高
+    position:relative;
+    overflow:hidden;
+
+    // UL 元素
+    /*ul*/.list {
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:1;
+        transition:top 0.5s ease-in 0s;
+        transition-property:top, left;
+    }
+
+
+    // 水平移动
+    /*ul*/.horizonal {
+        .item {
+            float:left;
+        }
+    }
+
+
+    .pager {
+        position:absolute;
+        z-index:10;
+
+        // 给 pager 组件 添加上 inline-block 样式，这样可以方便左右对齐
+        a {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            font-size: 12px;
+            letter-spacing: normal;
+            word-spacing: normal;
+            vertical-align: top;
+        }
+    }
+
+    .nav-btn {
+        position:absolute;
+        top:0;
+        z-index:1010;
+        width:100px;
+        height:100%;
+        cursor:pointer;
+        transition:0.5s;
+        background: url(http://www.xinhuanet.com/auto/static/img/slidershow.nav.png) no-repeat 15px 50%;
+    }
+    .next {
+        right:0;
+        background-position: -85px 50%;
+    }
+
+    .float-caption {
+        position:relative;
+        z-index:1020;
+        padding:10px;
+        margin-top:-40px;
+        line-height:20px;
+        color:#fff;
+        background:rgba(0,0,0,0.7);
+        filter:alpha(opacity=70);
+    }
+}

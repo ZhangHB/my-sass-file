@@ -1,0 +1,105 @@
+@charset "utf-8";
+// Responsive Slides
+//------------------------------------------------------------------------------
+.rslides {
+    // slider 的外部容器, pager 和 slider 是平行的关系,
+    // 所以需要这个外部容器, 用来定位
+    position: relative;
+
+    // for <ul>, slider 的 root 元素
+    .mod-slider {
+        position: relative;
+        list-style: none;
+        overflow: hidden;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        // for <li>, slider 的 item 元素
+        .item {
+            -webkit-backface-visibility: hidden;
+            position: absolute;
+            display: none;
+            width: 100%;
+            left: 0;
+            top: 0;
+            list-style: none;
+            &:first-child {
+                position: relative;
+                display: block;
+                float: left;
+            }
+            img {
+                display: block;
+                height: auto;
+                float: left;
+                width: 100%;
+                border: 0;
+            }
+        }
+        .inner-caption {
+            padding:2%;
+            position:absolute;
+            left:0;
+            bottom:0;
+            z-index:50;
+            width:96%;
+            color:#fff;
+            font-size:14px;
+            background-color:#000;
+            background-color:rgba(0,0,0,.7);
+            filter: alpha(opacity=85);
+        }
+    }
+
+    // for Pager , 翻页按钮, 用 inline-block 组织, 可以左右对齐
+    .rslides_tabs,
+    .mod-slider_tabs {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        z-index: 2;
+        @extend .row;
+        li {
+            @extend .dib;
+        }
+        a {
+            text-align:center;
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin-left: 5px;
+            line-height: 25px;
+            font-size: 12px;
+            color: #666;
+            border-radius: 15px;
+            background-color: #000;
+        }
+        .rslides_here a,
+        .mod-slider_here a {
+            color: #000;
+            background-color: #fff;
+        }
+    }
+
+    // for nav 左右按钮
+    .rslides_nav {
+        position:absolute;
+        z-index:100;
+        top:0;
+        height:100%;
+        width:100px;
+        min-height:100px;
+        text-indent:-9999px;
+        @include opacity(10);
+        background:url(http://www.xinhuanet.com/food/20140320/img/slidershow.nav.png) no-repeat 15px 50%;
+        transition: opacity 0.5s ease 0s;
+    }
+    .next {
+        right:0;
+        background:url(http://www.xinhuanet.com/food/20140320/img/slidershow.nav.png) no-repeat -85px 50%;
+    }
+    a.rslides_nav:hover {
+        @include opacity(90);
+    }
+}

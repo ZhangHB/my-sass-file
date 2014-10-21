@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*!
+COMMON.scss 2014-09-17 */
+
+
+$ie6hack : '_';
+$ie7hack : '+';
+
+
+// 给 root 元素设置自动高度, 这样给 body 元素设置高度 100% 之后,
+// 就能避免 body 元素上附加的背景图只按照视口高度显示的问题
+html { height:auto; }
+body { height:100%; }
+
+
+
+// 设置全局字族
+//------------------------------------------------------------------------------
+// Apple.com/cn
+// "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+
+// Microsoft.com/cn
+// 'Microsoft yahei','微软雅黑',Tahoma,Verdana,Arial,sans-serif;
+
+// Nokia.com/cn
+// "nokia-pure-text", "Segoe UI", "微软雅黑", "SimHei", Arial, Helvetica, sans-serif;
+
+// Mozilla.com/cn
+// 'Open Sans','Droid Arabic Naskh','Mplus Fulah',sans-serif;
+
+.Windows {
+    font-family:'Microsoft yahei','微软雅黑',Tahoma,Verdana,Arial,sans-serif;
+}
+
+.MacOS {
+    font-family:"Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+
+
+// 设置链接样式
+//------------------------------------------------------------------------------
+a {
+    text-decoration:none;
+}
+
+
+
+
+// 清除 inline-block 元素的默认间距
+//------------------------------------------------------------------------------
+%row {
+    font-size: 0;
+    #{$ie7hack}word-spacing: -1px;
+}
+
+%dib {
+    display: inline-block;
+    #{$ie7hack}display: inline;
+    #{$ie7hack}zoom: 1;
+    font-size: 14px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+}
+
+.row {
+    @extend %row;
+    .dib {
+        @extend %dib;
+    }
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+
+
+// 常用的基础样式设置
+//------------------------------------------------------------------------------
+h1,h2,h3,h4,h5,h6,p,figure,form,blockquote {
+  margin:0;
+}
+
+// ul ol dl
+ul,ol,li,dl,dd{
+  margin: 0;
+  padding:0;
+}
+
+ul,ol{
+  list-style: none outside none;
+}
+

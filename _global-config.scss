@@ -1,0 +1,121 @@
+@charset "utf-8";
+//------------------------------------------------------------------------------
+// 全局设置, 可以被项目中的 _config 覆盖掉
+// 2014-03-31 包含了 SC 里的 _setting 全部内容, _setting 文件被废弃
+//------------------------------------------------------------------------------
+
+
+
+
+
+// 各种开关
+//------------------------------------------------------------------------------
+// $lte7:                      true !default;  //是否兼容ie6-7
+// $filter:                    false !default; //是否为ie6-8开启css3滤镜兼容，常用于渐变背景
+// $printStyleSwitch:          false !default; //是否开启打印样式
+
+$show-html-bg:              true !default;  // HTML 标签是否包含背景图
+$show-global-nav:           true !default;  // 是否显示全局导航条
+$show-page-fixed-nav:       false !default; // 是否显示页面内跳转导航
+$show-top-bar:              true !default;  // 是否显示Top-bar
+$set-top-bar-style:         false !default; // Top-bar是否自动设置样式
+$show-full-screen-ad:       false !default; // 是否显示全屏大广告图
+
+
+
+
+// 各种尺寸
+//------------------------------------------------------------------------------
+$page-width:                980px !default;  // 页面宽度
+$phd-height:                360px !default;  // 头图高度
+$page-width:                980px;  // 页面宽度
+$phd-height:                360px;  // 头图高度
+$top-bar-height:            32px;   // Top-bar 高度
+$top-bar-underline-height:  1px;    // Top-bar 衬线高度
+$footer-height:             90px;   // page-footer 高度
+$footer-top-border:         3px;    // page-footer 顶部衬线宽度
+
+
+
+
+
+// font相关
+//-----------------------------------------------------
+$baseFontSize:          14px !default;
+$baseLineHeight:        1.5 !default;
+
+
+// 这些都挪到了 core/common 里
+// Apple.com/cn
+// "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+// Microsoft.com/cn
+// 'Microsoft yahei','微软雅黑',Tahoma,Verdana,Arial,sans-serif;
+// Nokia.com/cn
+// "nokia-pure-text", "Segoe UI", "微软雅黑", "SimHei", Arial, Helvetica, sans-serif;
+// Mozilla.com/cn
+// 'Open Sans','Droid Arabic Naskh','Mplus Fulah',sans-serif;
+// $baseFontFamily:        "Helvetica Neue", Helvetica, Tahoma, sans-serif !default;
+// $baseFontFamily:        "Lucida Grande", "Lucida Sans Unicode", Helvetica, Verdana, sans-serif;
+
+$msst:              "SimSun"; //宋体
+$msyh:              "Microsoft Yahei"; //微软雅黑
+$fontHeiTi:         "SimHei"; //黑体
+// $sans-serif:        $baseFontFamily;
+
+
+
+
+
+// 元素上下间距
+//-----------------------------------------------------
+$baseGap:               20px !default;
+
+
+
+
+
+// 基本颜色
+// color function : http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
+// lighten($color, $amount)
+// darken($color, $amount)
+// opacify($color, $amount)
+// mix($color1, $color2[, $amount])
+//-----------------------------------------------------
+$black:                 #000 !default;
+$gray-darker:           #333 !default;
+$gray-dark:             #999 !default;
+$gray:                  #ccc !default;
+$gray-light:            #f5f5f5 !default;
+$white:                 #fff !default;
+
+$red:                   #cc3300 !default;
+$blue:                  #00A3CF !default;
+$blueDark:              #0064cd !default;
+$orange:                #F47837 !default;
+$green:                 #51B148 !default;
+$yellow:                #ffc40d !default;
+$pink:                  #c3325f !default;
+$purple:                #7a43b6 !default;
+
+$primary:               #0078E7 !default;//主色
+
+
+
+
+
+// link
+//-----------------------------------------------------
+// 如果只有一个值则滑过的值为这个值的darken 5%，如果
+// 有两个值则第二个值为滑过的值
+$linkColor:             #08c !default;
+
+
+
+
+// z-index
+//-----------------------------------------------------
+$zindexDropdown:        1000 !default;
+$zindexFixedTopbar:     1010 !default;
+$zindexTooltip:         1020 !default;
+$zindexAlert:           1030 !default;
+$zindexModal:           1100 !default;

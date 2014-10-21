@@ -1,0 +1,199 @@
+@charset "utf-8";
+/*!
+MODS.scss 2014-09-17 */
+
+// 基础模块
+// .mod {
+//      .topic
+//      .media > img
+//      .caption
+//      .abstract
+//      .item
+//      .more
+// }
+//------------------------------------------------------------------------------
+
+
+// 创建 Caption 样式, 用于 .media 下方的说明部分,
+// 参数 :
+// 高度 : 用于高度和行高, 设置高度是为了支持超出隐藏, 设置行高是为了单行垂直居中
+// 对齐 : 默认是居中对齐
+// 是否超出隐藏
+// 是否单行显示 ： 默认是
+
+@mixin caption($height:auto, $line-height:normal, $ta:left, $ell:false, $single:false) {
+
+    @if $single {
+        $height:2em;
+        $line-height:2;
+        $ell:true;
+    }@else{
+        $line-height:1.4;
+    }
+
+    height:$height;
+    line-height:$line-height;
+    text-align:$ta;
+    @if $ell {
+        @include ellipsis;
+    }
+}
+
+
+
+
+// 创建 media 样式
+// 用在 Tile 和 Card 模块，Card 模块需要让它浮动起来
+//------------------------------------------------------------------------------
+@mixin media($float:false){
+    a {
+        display:block;
+        overflow:hidden;
+        img {
+            transition:0.5s;
+        }
+
+        @if $float {
+            // card 卡片
+            float:$float;
+            display:inline;
+            img {
+                display:block;
+            }
+        } @else {
+            // Tiles 瓦片
+            img {
+                display:block;
+                width:100%;
+                @include center-block;
+            }
+        }
+
+        &:hover {
+            img {
+                transform: scaleX(1.2) scaleY(1.2);
+            }
+        }
+    }
+}
+%media{
+    @include media;
+}
+
+
+
+
+
+
+
+
+
+
+// 创建文字列表
+// 参数:
+// $fs : font-size
+// $line-height : font-size 的两倍
+// $ell : 触发超出隐藏
+//------------------------------------------------------------------------------
+@mixin mod-list($fs:$baseFontSize, $line-height:2, $ell:true) {
+    .item {
+        height:$line-height + em;
+        line-height:$line-height;
+        font-size:$fs;
+        // background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAMAAACeL25MAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAGUExURfX19QAAANFUCN0AAAABdFJOUwBA5thmAAAAFUlEQVR42mJgYGRkYAAjKM3IABBgAABkAAl3gwX4AAAAAElFTkSuQmCC) no-repeat 6px 50%;
+        background: url(data:image/gif;base64,R0lGODlhAwADAIAAAAAAAP///yH5BAAAAAAALAAAAAADAAMAAAIDhH8FADs=) no-repeat 6px 50%;
+        @if($ell) {
+            width: 100%;
+        }
+        a {
+            text-indent:1.2em;
+            @if($ell) {
+                display: block;
+                @include ellipsis;
+            }
+        }
+    }
+}
+
+// 所有使用默认值的 mod-list 都合并到这个选择器上
+%mod-list {
+    @include mod-list;
+}
+
+
+
+
+
+
+//    Tiles 瓦片,
+//    简单的图片配标题组件,
+//------------------------------------------------------------------------------
+// .mod-tile {
+//     .caption {
+//         height:2em;
+//         line-height:2;
+//         text-align:center;
+//         @include ellipsis;
+//     }
+//     .abstract {
+//         line-height:1.7;
+//         padding-top:4px;
+//         padding-bottom:4px;
+//     }
+//     .topic {
+//         height:28px;
+//         line-height:28px;
+//         @include ellipsis;
+//     }
+//     .more {
+//         a {
+//             font-weight:700;
+//         }
+//     }
+// }
+
+@mixin mod-tile($single:false){
+    @if $single {
+        .caption {
+            @include caption($single:true, $ta:center);
+        }
+    }@else{
+        .caption {
+            @include caption;
+        }
+    }
+
+    .media {
+        @extend %media;
+    }
+}
+
+%mod-tile {
+    @include mod-tile;
+}
+
+
+
+
+
+
+//    card 卡片,
+//    图片配大段文字
+//------------------------------------------------------------------------------
+@mixin mod-card($float:left){
+    .topic {
+        @include caption($single:true);
+    }
+    .media {
+        @include media($float);
+    }
+
+    .article {
+        @extend %clearfix;
+    }
+}
+
+
+%mod-card {
+    @include mod-card;
+}
