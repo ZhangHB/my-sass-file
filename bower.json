@@ -1,0 +1,23 @@
+{
+  "name": "my-sass-file",
+  "version": "0.3.0",
+  "homepage": "https://github.com/ZhangHB/my-sass-file",
+  "authors": [
+    "ZhangHB <tyoumihin@gmail.com>"
+  ],
+  "description": "My scss file for News.cn.",
+  "license": "WTFPL",
+  "main" : [
+    "core",
+    "mods",
+    "scaffold",
+    "vendor"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
