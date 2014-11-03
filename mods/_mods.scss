@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*!
-MODS.scss 2014-09-17 */
+MODS.scss 2014-11-02 */
 
 // 基础模块
 // .mod {
@@ -196,4 +196,38 @@ MODS.scss 2014-09-17 */
 
 %mod-card {
     @include mod-card;
+}
+
+
+
+
+
+//    topics,
+//    头条组，字号，行高都是固定的，传统风格的头条组。
+//    对齐方式单独设定吧
+//------------------------------------------------------------------------------
+.mod-topics {
+
+    .topics {
+        @extend %ellipsis-basic;
+    }
+
+    .topics-1 {
+        font-size:16px;
+        font-weight:700;
+        line-height:28px;
+        height:28px;
+    }
+
+    .topics-2 {
+        font-size:14px;
+        line-height:24px;
+        height:24px;
+    }
+
+    .topics-3 {
+        font-size:14px;
+        line-height:24px;
+        height:24px;
+    }
 }
