@@ -1,4 +1,10 @@
 <?php
+/*!
+2014-11-03
+增加了 roundabout 旋转焦点图
+*/
+
+
 
 // 批量创建 瓦片模块
 // $num : 要循环的个数
@@ -130,14 +136,14 @@ function createModCard($num, $dib='', $imgWidth, $imgHeight, $withTime = true){
 };
 
 // 创建
-function addModCard($num = 1, $dib = '', $imgWidth, $imgHeight){
+function addModCard($num = 1, $dib = '', $imgWidth, $imgHeight,$withTime = true){
     echo "<!-- 卡片模块 这里一共输出了 ".$num." 组。 -->";
     if($dib == "dib"){
         echo "<div class=\"unit row\">";
-        createModCard($num, $dib, $imgWidth, $imgHeight);
+        createModCard($num, $dib, $imgWidth, $imgHeight,$withTime);
         echo "</div>";
     }else{
-        createModCard($num, $dib, $imgWidth, $imgHeight);
+        createModCard($num, $dib, $imgWidth, $imgHeight,$withTime);
     }
     echo "<!-- /卡片模块输出结束啦 -->";
 };
@@ -251,5 +257,49 @@ function addNativeCarousel($num = 5, $id = '', $imgWidth = 610, $imgHeight = 265
         "</div>\n";
 };
 
+
+
+
+
+// 创建 Roundable 旋转焦点图
+// 这个脚本的尺寸设置，基本上都在 css 文件里，所以这里也就设置图片的个数
+//----------------------------------------------------------------------------------------------------------------------
+/*
+<div class="roundabout roundabout-1">
+    <div class="roundabout_box roundabout_box-1">
+        <span class="prev">&nbsp;</span>
+        <span class="next">&nbsp;</span>
+        <ul id="roundabout_list-1">
+            <li>
+                <div class="roundabout_inbox">
+                    <img src="//dummyimage.com/520x335/c30/fff/" />
+                    <p class="caption">
+                        <a href="javascript">标题标题标题标题标题标题5</a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+*/
+
+function addRoundabout($num = 5, $id){
+    echo "<div class=\"roundabout\">\n".
+        "    <div class=\"roundabout_box\">\n".
+        "        <span class=\"prev\">&nbsp;</span>\n".
+        "        <span class=\"next\">&nbsp;</span>\n".
+        "        <ul id=\"" . $id . "\">\n";
+
+    for ($i = 0; $i < $num; $i++) {
+        echo "            <li class=\"item\">\n".
+             "                <div class=\"roundabout_inbox\">\n".
+             "                    <img src=\"//dummyimage.com/520x335/c30/fff/\" />\n".
+             "                    <p class=\"caption\"><a href=\"javascript\">标题标题标题标题标题标题5</a></p>\n".
+             "                </div>\n".
+             "            </li>\n";
+    }
+
+    echo "        </ul>\n    </div>\n</div>";
+};
 
 ?>
