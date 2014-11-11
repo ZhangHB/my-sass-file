@@ -1,5 +1,6 @@
 @charset "utf-8";
 // Roundable 焦点图
+// 2014-11-11 更新了左右按钮的资源图，并增加了透明度
 //------------------------------------------------------------------------------
 
 @mixin roundabout($width:650px, $height:335px, $border:3px){
@@ -27,20 +28,22 @@
             width: 85px;
             height: 185px;
             top: 80px;
+            @include opacity(20);
+            transition:0.5s;
         }
         // 分别设置左右按钮的背景图
         .prev {
-            background: url(http://www.xinhuanet.com/travel/20131227/img/global-1.png) -582px -90px no-repeat;
+            background: url(http://www.xinhuanet.com/auto/static/img/slidershow.nav.png) 0 0 no-repeat;
             left: -165px;
                 &:hover {
-                    background-position: -582px -90px;
+                    @include opacity(100);
                 }
         }
         .next {
-            background: url(http://www.xinhuanet.com/travel/20131227/img/global-1.png) -667px -90px no-repeat;
+            background: url(http://www.xinhuanet.com/auto/static/img/slidershow.nav.png) -85px 0 no-repeat;
             right: -165px;
                 &:hover {
-                    background-position: -667px -90px;
+                    @include opacity(100);
                 }
         }
     }
