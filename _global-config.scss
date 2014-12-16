@@ -1,7 +1,6 @@
 @charset "utf-8";
 //------------------------------------------------------------------------------
 // 全局设置, 可以被项目中的 _config 覆盖掉
-// 2014-03-31 包含了 SC 里的 _setting 全部内容, _setting 文件被废弃
 //------------------------------------------------------------------------------
 
 
@@ -28,12 +27,12 @@ $show-full-screen-ad:       false !default; // 是否显示全屏大广告图
 //------------------------------------------------------------------------------
 $page-width:                980px !default;  // 页面宽度
 $phd-height:                360px !default;  // 头图高度
-$page-width:                980px;  // 页面宽度
-$phd-height:                360px;  // 头图高度
-$top-bar-height:            32px;   // Top-bar 高度
-$top-bar-underline-height:  1px;    // Top-bar 衬线高度
-$footer-height:             90px;   // page-footer 高度
-$footer-top-border:         3px;    // page-footer 顶部衬线宽度
+$page-width:                980px !default;  // 页面宽度
+$phd-height:                320px !default;  // 头图高度
+$top-bar-height:            32px !default;   // Top-bar 高度
+$top-bar-underline-height:  1px !default;    // Top-bar 衬线高度
+$footer-height:             90px !default;   // page-footer 高度
+$footer-top-border:         3px !default;    // page-footer 顶部衬线宽度
 
 
 
@@ -108,14 +107,3 @@ $primary:               #0078E7 !default;//主色
 // 如果只有一个值则滑过的值为这个值的darken 5%，如果
 // 有两个值则第二个值为滑过的值
 $linkColor:             #08c !default;
-
-
-
-
-// z-index
-//-----------------------------------------------------
-$zindexDropdown:        1000 !default;
-$zindexFixedTopbar:     1010 !default;
-$zindexTooltip:         1020 !default;
-$zindexAlert:           1030 !default;
-$zindexModal:           1100 !default;

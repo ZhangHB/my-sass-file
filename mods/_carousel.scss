@@ -26,7 +26,7 @@ CAROUSEL.scss 2014-09-25 */
     .base-pager {
         width:100%;
         position:absolute;
-        z-index:1010;
+        z-index:$button;
         @extend .row;
         .item {
             @extend .dib;

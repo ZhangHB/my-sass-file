@@ -14,7 +14,7 @@ SLIDER.scss 2014-09-25 Slidershow.0.2.1 */
         position:absolute;
         top:0;
         left:0;
-        z-index:1;
+        z-index:$caption;
         transition:top 0.5s ease-in 0s;
         transition-property:top, left;
     }
@@ -30,7 +30,7 @@ SLIDER.scss 2014-09-25 Slidershow.0.2.1 */
 
     .pager {
         position:absolute;
-        z-index:10;
+        z-index:$button;
 
         // 给 pager 组件 添加上 inline-block 样式，这样可以方便左右对齐
         a {
@@ -47,7 +47,7 @@ SLIDER.scss 2014-09-25 Slidershow.0.2.1 */
     .nav-btn {
         position:absolute;
         top:0;
-        z-index:1010;
+        z-index:$button;
         width:100px;
         height:100%;
         cursor:pointer;
@@ -61,7 +61,7 @@ SLIDER.scss 2014-09-25 Slidershow.0.2.1 */
 
     .float-caption {
         position:relative;
-        z-index:1020;
+        z-index:$caption;
         padding:10px;
         margin-top:-40px;
         line-height:20px;

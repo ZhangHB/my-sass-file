@@ -108,7 +108,7 @@ NAV.scss 2014-09-25 */
         .fixed-fix {
             position:fixed;
             top:5px;
-            z-index:99;
+            z-index:$global-nav;
         }
     }
 } @else {
