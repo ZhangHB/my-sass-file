@@ -105,3 +105,35 @@ $global-nav     : 1030;
 $button         : 1020;
 $caption        : 1010;
 
+
+
+
+
+// 消息提示
+//------------------------------------------------------------------------------
+.alert {
+    border-width:1px;
+    border-style:dotted;
+    color:#666;
+    padding:10px;
+    margin:10px 0;
+    em {
+        font-weight:700;
+        font-style:normal;
+    }
+}
+.alert-success {
+
+}
+.alert-info {
+
+}
+.alert-warning {
+
+}
+
+.alert-danger {
+    border-color:#e55;
+    background-color:lighten(#e55,32%);
+    color:#c00;
+}
