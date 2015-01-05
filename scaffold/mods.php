@@ -1,5 +1,8 @@
 <?php
 /*!
+2015-01-05
+增加了 lazyload 支持
+
 2014-11-03
 增加了 roundabout 旋转焦点图
 */
@@ -14,13 +17,20 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // 生成
-function createModTile($num, $dib = '', $imgWidth, $imgHeight){
+function createModTile($num, $dib = '', $imgWidth, $imgHeight, $lazy = true){
+    if($lazy == true){
+        $src = "           <img class=\"lazy-load\" src=\"img/null.gif\" data-src=\"//lorempixel.com/".$imgWidth."/".$imgHeight."/\" alt=\"\">\n";
+    }else{
+        $src = "           <img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\">\n";
+    }
+
     for ($i = 0; $i < $num; $i++) {
         echo "<div class=\"mod mod-tile ".$dib."\">\n".
             "    <figure class=\"media\">\n".
-            "       <a href=\"javascript:;\">\n".
-            "           <img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\">\n".
-            "       </a>\n".
+            "       <a href=\"javascript:;\">\n";
+            // "           <img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\">\n".
+        echo $src;
+        echo "       </a>\n".
             "       <p class=\"caption\"><a href=\"javascript:;\">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a></p>\n".
             "    </figure>\n".
             "</div>\n";
@@ -29,14 +39,14 @@ function createModTile($num, $dib = '', $imgWidth, $imgHeight){
 
 
 // 创建
-function addModTile($num = 1, $dib = '', $imgWidth=100, $imgHeight=100){
+function addModTile($num = 1, $dib = '', $imgWidth=100, $imgHeight=100, $lazy = true){
     echo "<!-- 瓦片模块 这里一共输出了 ".$num." 组。 -->";
     if($dib == "dib"){
         echo "<div class=\"unit row\">";
-        createModTile($num, $dib, $imgWidth, $imgHeight);
+        createModTile($num, $dib, $imgWidth, $imgHeight, $lazy);
         echo "</div>";
     }else if($dib == ""){
-        createModTile($num, $dib, $imgWidth, $imgHeight);
+        createModTile($num, $dib, $imgWidth, $imgHeight, $lazy);
     }
     echo "<!-- /瓦片模块输出结束啦 -->";
 };
@@ -112,8 +122,15 @@ function addModList($num = 1, $dib = '', $length){
 
 
 // 生成
-function createModCard($num, $dib='', $imgWidth, $imgHeight, $withTime = true){
+function createModCard($num, $dib='', $imgWidth, $imgHeight, $withTime = true, $lazy = true){
     for ($i = 0; $i < $num; $i++) {
+
+        if($lazy == true){
+            $src = "           <img class=\"lazy-load\" src=\"img/null.gif\" data-src=\"//lorempixel.com/".$imgWidth."/".$imgHeight."/\" alt=\"\">\n";
+        }else{
+            $src = "           <img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\">\n";
+        }
+
         echo "<div class=\"mod mod-card ".$dib."\">\n".
             "   <section class=\"article\">\n";
 
@@ -124,7 +141,7 @@ function createModCard($num, $dib='', $imgWidth, $imgHeight, $withTime = true){
         echo "       <h3 class=\"topic\"><a href=\"javascript:;\">亚运中国代表团成立 孙杨林丹领衔897运动员名单</a></h3>\n";
 
         if($imgWidth !== 0 || $imgHeight !== 0) {
-            echo "       <p class=\"media\"><a href=\"javascript:;\"><img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\"></a></p>\n";
+            echo "       <p class=\"media\"><a href=\"javascript:;\">".$src."</a></p>\n";
         }
 
         echo "       <p class=\"abstract\">\n".
@@ -136,14 +153,14 @@ function createModCard($num, $dib='', $imgWidth, $imgHeight, $withTime = true){
 };
 
 // 创建
-function addModCard($num = 1, $dib = '', $imgWidth, $imgHeight,$withTime = true){
+function addModCard($num = 1, $dib = '', $imgWidth, $imgHeight,$withTime = true, $lazy){
     echo "<!-- 卡片模块 这里一共输出了 ".$num." 组。 -->";
     if($dib == "dib"){
         echo "<div class=\"unit row\">";
-        createModCard($num, $dib, $imgWidth, $imgHeight,$withTime);
+        createModCard($num, $dib, $imgWidth, $imgHeight,$withTime, $lazy);
         echo "</div>";
     }else{
-        createModCard($num, $dib, $imgWidth, $imgHeight,$withTime);
+        createModCard($num, $dib, $imgWidth, $imgHeight,$withTime, $lazy);
     }
     echo "<!-- /卡片模块输出结束啦 -->";
 };
@@ -175,12 +192,12 @@ function addModCard($num = 1, $dib = '', $imgWidth, $imgHeight,$withTime = true)
 function createModTopics($num, $type){
     echo "<div class=\"mod mod-topics\">";
     if($type === 'abstract'){
-        echo "    <section class=\"topics\"><a href=\"javascript:;\">“2013新华年度车评选”结果正式揭晓</a></section>\n".
-             "    <p class=\"abstract\">记者寒冰报道 这次仁川亚运会中国女足喊出夺冠口号，多少与强劲对手日本队几乎只派来半支主力班底有关。亚运会班底，球迷们熟悉的日本女足主力只有宫间绫、阪口梦穂、川澄奈穗美和后卫岩清水梓是绝对主力，国家队经验不超过10场的新人就有8人，几乎占了全队班底的一半。<span class=\"more\"><a href=\"javascript\">[详细]</a></span>\n</p>\n";
+        echo "    <section class=\"topics\"><a href=\"javascript:;\">2015年国际赛事指南：世巡赛篇</a></section>\n".
+             "    <p class=\"abstract\">这场比赛将会是前环法冠军卡德尔·埃文斯的世巡赛告别之战，他将在家乡父老的掌声和呐喊声中结束自己世巡赛的舞台（备注：埃文斯的告别赛将会是一周之后以其命名的Cadel Evans Great Ocean Road Race，这是被UCI评为1.1级新的单日赛）。<span class=\"more\"><a href=\"javascript\">[详细]</a></span>\n</p>\n";
     }else{
-        echo "    <section class=\"topics topics-1\"><a href=\"javascript:;\">“2013新华年度车评选”结果正式揭晓</a></section>\n".
-             "    <section class=\"topics topics-2\"><a href=\"javascript:;\">新能源车步入政策年 私人市场何时破局</a></section>\n".
-             "    <section class=\"topics topics-3\"><a href=\"javascript:;\">政策让新能源车市场更明朗 私人购买新能源车需时间检验</a></section>\n";
+        echo "    <section class=\"topics topics-1\"><a href=\"javascript:;\">外媒观点：2014年国际公路车坛十大低潮</a></section>\n".
+             "    <section class=\"topics topics-2\"><a href=\"javascript:;\">外媒观点：2014国际公路自行车坛十大亮点</a></section>\n".
+             "    <section class=\"topics topics-3\"><a href=\"javascript:;\">郭爽获UCI场地自行车世界杯伦敦站凯林赛冠军</a></section>\n";
     };
     echo "</div>";
 };
@@ -235,20 +252,26 @@ function addNativeTabs($num, $id){
 // $imgHeight :
 // $id :
 //----------------------------------------------------------------------------------------------------------------------
-function addNativeCarousel($num = 5, $id = '', $imgWidth = 610, $imgHeight = 265, $caption = false){
-
-    $captionContnt = "";
+function addNativeCarousel($num = 5, $id = '', $imgWidth = 610, $imgHeight = 265, $caption = false, $lazy = true){
 
     if($caption){
-        $captionContnt = "<p class=\"caption\"><a href=\"javascript:;\">标题标题标题标题标题标题标题标题标题</a></p>";
+        $captionContnt = "<p class=\"caption\"><a href=\"javascript:;\">外媒观点：2014国际公路自行车坛十大亮点</a></p>";
+    }else{
+        $captionContnt = "";
     };
+
+    if($lazy){
+        $src = "           <img class=\"lazy-load\" src=\"img/null.gif\" data-src=\"//lorempixel.com/".$imgWidth."/".$imgHeight."/\" alt=\"\">\n";
+    }else{
+        $src = "           <img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\">\n";
+    }
 
     echo "<div id=\"".$id."\" class=\"native-carousel\">\n".
         "    <ul class=\"list\">\n";
 
     for ($i = 0; $i < $num; $i++) {
         echo "<li class=\"item\">".
-            "<a href=\"javascript:;\"><img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\"></a>".
+            "<a href=\"javascript:;\">".$src."</a>".
             $captionContnt.
             "</li>";
     }
@@ -283,7 +306,17 @@ function addNativeCarousel($num = 5, $id = '', $imgWidth = 610, $imgHeight = 265
 </div>
 */
 
-function addRoundabout($num = 5, $id){
+function addRoundabout($num = 5, $id, $lazy = true){
+
+    $imgWidth = "520";
+    $imgHeight = "335";
+
+    if($lazy == true){
+        $src = "           <img class=\"lazy-load\" src=\"img/null.gif\" data-src=\"//lorempixel.com/".$imgWidth."/".$imgHeight."/\" alt=\"\">\n";
+    }else{
+        $src = "           <img src=\"//dummyimage.com/".$imgWidth."x".$imgHeight."/666/ccc\" alt=\"\">\n";
+    }
+
     echo "<div class=\"roundabout\">\n".
         "    <div class=\"roundabout_box\">\n".
         "        <span class=\"prev\">&nbsp;</span>\n".
@@ -292,9 +325,10 @@ function addRoundabout($num = 5, $id){
 
     for ($i = 0; $i < $num; $i++) {
         echo "            <li class=\"item\">\n".
-             "                <div class=\"roundabout_inbox\">\n".
-             "                    <img src=\"//dummyimage.com/520x335/c30/fff/\" />\n".
-             "                    <p class=\"caption\"><a href=\"javascript\">标题标题标题标题标题标题5</a></p>\n".
+             "                <div class=\"roundabout_inbox\">\n";
+             // "                    <img src=\"//dummyimage.com/520x335/c30/fff/\" />\n".
+        echo $src;
+        echo "                    <p class=\"caption\"><a href=\"javascript\">外媒观点：2014国际公路自行车坛十大亮点</a></p>\n".
              "                </div>\n".
              "            </li>\n";
     }
