@@ -192,12 +192,12 @@ function addModCard($num = 1, $dib = '', $imgWidth, $imgHeight,$withTime = true,
 function createModTopics($num, $type){
     echo "<div class=\"mod mod-topics\">";
     if($type === 'abstract'){
-        echo "    <section class=\"topics\"><a href=\"javascript:;\">2015年国际赛事指南：世巡赛篇</a></section>\n".
+        echo "    <section class=\"topic\"><a href=\"javascript:;\">2015年国际赛事指南：世巡赛篇</a></section>\n".
              "    <p class=\"abstract\">这场比赛将会是前环法冠军卡德尔·埃文斯的世巡赛告别之战，他将在家乡父老的掌声和呐喊声中结束自己世巡赛的舞台（备注：埃文斯的告别赛将会是一周之后以其命名的Cadel Evans Great Ocean Road Race，这是被UCI评为1.1级新的单日赛）。<span class=\"more\"><a href=\"javascript\">[详细]</a></span>\n</p>\n";
     }else{
-        echo "    <section class=\"topics topics-1\"><a href=\"javascript:;\">外媒观点：2014年国际公路车坛十大低潮</a></section>\n".
-             "    <section class=\"topics topics-2\"><a href=\"javascript:;\">外媒观点：2014国际公路自行车坛十大亮点</a></section>\n".
-             "    <section class=\"topics topics-3\"><a href=\"javascript:;\">郭爽获UCI场地自行车世界杯伦敦站凯林赛冠军</a></section>\n";
+        echo "    <section class=\"topic topic-1\"><a href=\"javascript:;\">外媒观点：2014年国际公路车坛十大低潮</a></section>\n".
+             "    <section class=\"topic topic-2\"><a href=\"javascript:;\">外媒观点：2014国际公路自行车坛十大亮点</a></section>\n".
+             "    <section class=\"topic topic-3\"><a href=\"javascript:;\">郭爽获UCI场地自行车世界杯伦敦站凯林赛冠军</a></section>\n";
     };
     echo "</div>";
 };
