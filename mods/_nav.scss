@@ -8,6 +8,9 @@ NAV.scss 2014-09-25 */
 // 3. 顶部导航        (.top-bar)
 //------------------------------------------------------------------------------
 
+$ie6hack : '_';
+$ie7hack : '+';
+
 // 全局导航
 //------------------------------------------------------------------------------
 
@@ -24,7 +27,7 @@ NAV.scss 2014-09-25 */
 
             @if $single {
                 display:table;
-                *display:block;
+                #{$ie7hack}display:block;
             }@elseif($single == false){
                 @extend .row;
             }
@@ -38,7 +41,7 @@ NAV.scss 2014-09-25 */
         .item {
             @if $single {
                 display:table-cell;
-                *display:inline;
+                #{$ie7hack}display:inline;
             }@elseif($single == false){
                 @extend .dib;
             }
@@ -52,7 +55,7 @@ NAV.scss 2014-09-25 */
                 letter-spacing: 0.1em;
                 font-size:$fs;
                 display:block;
-                *display:inline-block;
+                #{$ie7hack}display:inline-block;
                 font-weight: 400;
                 // font-family: $msyh, sans-serif;
             }
